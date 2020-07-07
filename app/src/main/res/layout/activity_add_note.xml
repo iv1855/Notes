@@ -41,9 +41,10 @@
 
     <RadioGroup
         android:id="@+id/radioGroupPriority"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerDaysOfWeek">
 
@@ -51,6 +52,7 @@
             android:id="@+id/radioButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@android:color/holo_red_light"
             android:text="@string/priority_1" />
 
@@ -58,6 +60,7 @@
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@android:color/holo_orange_light"
             android:text="@string/priority_2" />
 
@@ -65,8 +68,9 @@
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
+            android:layout_weight="1"
             android:background="@android:color/holo_green_light"
+            android:checked="true"
             android:text="@string/priority_3" />
     </RadioGroup>
 
