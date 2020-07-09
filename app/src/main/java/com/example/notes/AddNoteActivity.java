@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 public class AddNoteActivity extends AppCompatActivity {
 
-    private TextView editTextTitle;
-    private TextView editTextDescription;
+    private EditText editTextTitle;
+    private EditText editTextDescription;
     private Spinner spinnerDaysOfWeek;
     private RadioGroup radioGroupPriority;
 
@@ -22,8 +22,8 @@ public class AddNoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
-        editTextTitle = findViewById(R.id.textViewTitle);
-        editTextDescription = findViewById(R.id.textViewDescription);
+        editTextTitle = findViewById(R.id.editTextTitle);
+        editTextDescription = findViewById(R.id.editTextDescription);
         spinnerDaysOfWeek = findViewById(R.id.spinnerDaysOfWeek);
         radioGroupPriority = findViewById(R.id.radioGroupPriority);
 
