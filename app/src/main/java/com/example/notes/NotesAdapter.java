@@ -13,10 +13,17 @@ import java.util.ArrayList;
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
     private ArrayList<Note> notes;
+    private OnNoteClickListener onNoteClickListener;
 
     public NotesAdapter(ArrayList<Note> notes) {
         this.notes = notes;
     }
+
+    interface OnNoteClickListener {
+        void onNoteClick(int position);
+     }
+
+
 
     @NonNull
     @Override
