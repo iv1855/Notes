@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             notes.add(new Note("Баскетбол", "Игра с школьной командой", "Вторник", 3));
             notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
         }
-        final NotesAdapter adapter = new NotesAdapter(notes);
+        adapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewNotes.setAdapter(adapter);
         adapter.setOnNoteClickListener(new NotesAdapter.OnNoteClickListener() {
