@@ -30,23 +30,23 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
         dbHelper = new NotesDBHelper(this);
         SQLiteDatabase database = dbHelper.getWritableDatabase();
-        if (notes.isEmpty()) {
-            notes.add(new Note("Парикмахер", "Сделать прическу", "Понедельник", 2));
-            notes.add(new Note("Баскетбол", "Игра с школьной командой", "Вторник", 3));
-            notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
-            notes.add(new Note("Стоматолог", "Вылечить зубы", "Понедельник", 2));
-            notes.add(new Note("Парикмахер", "Сделать прическу к выпускному", "Среда", 1));
-            notes.add(new Note("Баскетбол", "Игра с школьной командой", "Вторник", 3));
-            notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
-        }
-        for (Note note : notes) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(NotesContract.NotesEntry.COLUMN_TITLE, note.getTitle());
-            contentValues.put(NotesContract.NotesEntry.COLUMN_DESCRIPTION, note.getDescription());
-            contentValues.put(NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK, note.getDayOfWeek());
-            contentValues.put(NotesContract.NotesEntry.COLUMN_PRIORITY, note.getPriority());
-            database.insert(NotesContract.NotesEntry.TABLE_NAME, null, contentValues);
-        }
+//        if (notes.isEmpty()) {
+//            notes.add(new Note("Парикмахер", "Сделать прическу", "Понедельник", 2));
+//            notes.add(new Note("Баскетбол", "Игра с школьной командой", "Вторник", 3));
+//            notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
+//            notes.add(new Note("Стоматолог", "Вылечить зубы", "Понедельник", 2));
+//            notes.add(new Note("Парикмахер", "Сделать прическу к выпускному", "Среда", 1));
+//            notes.add(new Note("Баскетбол", "Игра с школьной командой", "Вторник", 3));
+//            notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
+//        }
+//        for (Note note : notes) {
+//            ContentValues contentValues = new ContentValues();
+//            contentValues.put(NotesContract.NotesEntry.COLUMN_TITLE, note.getTitle());
+//            contentValues.put(NotesContract.NotesEntry.COLUMN_DESCRIPTION, note.getDescription());
+//            contentValues.put(NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK, note.getDayOfWeek());
+//            contentValues.put(NotesContract.NotesEntry.COLUMN_PRIORITY, note.getPriority());
+//            database.insert(NotesContract.NotesEntry.TABLE_NAME, null, contentValues);
+//        }
         ArrayList<Note> notesFromDB = new ArrayList<>();
         Cursor cursor = database.query(NotesContract.NotesEntry.TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext()) {
