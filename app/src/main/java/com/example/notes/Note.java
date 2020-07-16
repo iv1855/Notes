@@ -53,5 +53,6 @@ public class Note {
                 return "Воскресенье";
 
         }
+        return null;
     }
 }
