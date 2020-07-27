@@ -16,17 +16,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewNotes;
     private final ArrayList<Note> notes = new ArrayList<>();
     private NotesAdapter adapter;
+    private NotesDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        database = NotesDatabase.getInstance(this);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
         adapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
+        getData();
         recyclerViewNotes.setAdapter(adapter);
         adapter.setOnNoteClickListener(new NotesAdapter.OnNoteClickListener() {
             @Override
@@ -62,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void remove(int position) {
-        int id = notes.get(position).getId();
+        Note note = notes.get(position);
+        database.notesDao().deleteNote(note);
+        getData();
         adapter.notifyDataSetChanged();
     }
 
@@ -70,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddNoteActivity.class);
         startActivity(intent);
 
+    }
+
+    private void getData() {
+        List<Note> notesFromDB = database.notesDao().getAllNotes();
+        notes.clear();
+        notes.addAll(notesFromDB);
     }
 
 

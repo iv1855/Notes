@@ -6,11 +6,12 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface NotesDao {
-    @Query("SELECT * FROM notes ORDER BY dayOfWeek")
-    ArrayList<Note> getAllNotes();
+    @Query("SELECT * FROM notes ORDER BY dayOfWeek DESC")
+    List<Note> getAllNotes();
 
     @Insert
     void insertNote(Note note);
