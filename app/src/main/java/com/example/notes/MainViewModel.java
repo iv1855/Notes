@@ -33,7 +33,7 @@ public class MainViewModel extends AndroidViewModel {
     public void deleteNote(Note note) {
         new DeleteTask().execute(note);
     }
-    public void deleteAllNote() {
+    public void deleteAllNotes() {
         new DeleteAllTask().execute();
     }
 
