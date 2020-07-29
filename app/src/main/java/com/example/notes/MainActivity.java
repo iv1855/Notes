@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void remove(int position) {
 
-        Note note = notes.get(position);
+        Note note = adapter.getNotes().get(position);
         viewModel.deleteNote(note);
 
     }
