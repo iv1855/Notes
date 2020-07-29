@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         notesFromDB.observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(@Nullable List<Note> notesFromLiveData) {
-                adapter.setNotes(notesFromLiveData);
+                adapter.setNotes(notesFromLiveData) ;
             }
         });
 
