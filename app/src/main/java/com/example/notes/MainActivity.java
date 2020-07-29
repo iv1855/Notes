@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,10 +88,8 @@ public class MainActivity extends AppCompatActivity {
         LiveData<List<Note>> notesFromDB = viewModel.getNotes();
         notesFromDB.observe(this, new Observer<List<Note>>() {
             @Override
-            public void onChanged(List<Note> notesFromLiveData) {
-                notes.clear();
-                notes.addAll(notesFromLiveData);
-                adapter.notifyDataSetChanged();
+            public void onChanged(@Nullable List<Note> notesFromLiveData) {
+                adapter.setNotes(notesFromLiveData);
             }
         });
 
